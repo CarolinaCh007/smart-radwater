@@ -19,7 +19,7 @@ def mostrar(df, df_actual):
 
     df_f = df_actual[df_actual["zona"].isin(zona_filtro)]
 
-    mapa = folium.Map(location=[-16.52, -68.58], zoom_start=10,
+    mapa = folium.Map(location=[-16.52, -68.58], zoom_start=12,
                       tiles="CartoDB dark_matter")
 
     if capa == "Heatmap Cs-137":
