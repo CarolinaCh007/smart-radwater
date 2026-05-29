@@ -8,7 +8,7 @@ from utils.generador import LIMITES_IAEA
 def mostrar(df, df_actual):
 
     st.markdown("## 📊 Dashboard por Variable")
-    st.markdown("Análisis completo por variable | Zonas: Lago Titicaca · Río Katari · Bahía Cohana · Zona Minera")
+    st.markdown("Análisis completo por variable | Zonas: Río Katari · Bahía Cohana · Zona Minera")
     st.divider()
 
     # ── Selector de variable ──────────────────────────
@@ -34,8 +34,8 @@ def mostrar(df, df_actual):
     with col_sel2:
         zona_filtro = st.multiselect(
             "🗺️ Zonas:",
-            ["Lago Titicaca", "Río Katari", "Bahía Cohana", "Zona Minera"],
-            default=["Lago Titicaca", "Río Katari", "Bahía Cohana"]
+            [ "Río Katari", "Bahía Cohana", "Zona Minera"],
+            default=[ "Río Katari", "Bahía Cohana"]
         )
 
     col, limite, unidad, escala = VARIABLES[var_label]
@@ -106,7 +106,7 @@ def mostrar(df, df_actual):
         st.markdown("#### 🥧 Promedio por Zona")
         df_zona = df_f.groupby("zona")[col].mean().reset_index()
         colores_zona = {
-            "Lago Titicaca": "#00d4ff",
+    
             "Río Katari":    "#ff6b6b",
             "Bahía Cohana":  "#ff4444",
             "Zona Minera":   "#888888"

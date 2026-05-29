@@ -7,7 +7,7 @@ from utils.generador import LIMITES_IAEA
 def mostrar(df, df_actual):
 
     st.markdown("## 🏠 Centro de Control")
-    st.markdown("**Sistema de Tratamiento Radiolítico Molecular Avanzado — Lago Titicaca, Bolivia**")
+    st.markdown("**Sistema de Tratamiento Radiolítico Molecular Avanzado, Bolivia**")
     st.divider()
 
     # ── KPIs ──────────────────────────────────────────

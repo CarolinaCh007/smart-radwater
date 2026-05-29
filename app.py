@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 from utils.generador import generar_dataset_completo, get_datos_actuales
-from modulos import inicio, mapa, espectros, prediccion, alertas, variables, baterias, informes
-
+#
+# from modulos import inicio, mapa, espectros, prediccion, alertas, variables, baterias, informes
+from modulos import inicio, mapa, espectros, prediccion, alertas, variables, baterias, informes, katari
 st.set_page_config(
     page_title="SMART-RADWATER",
     page_icon="🌊",
@@ -56,13 +57,13 @@ df_actual = get_datos_actuales(df)
 # SIDEBAR
 # ══════════════════════════════════════════════════════
 with st.sidebar:
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Bolivia.svg/320px-Flag_of_Bolivia.svg.png",
-        width=100
-    )
+    
+
+    st.markdown("🇧🇴", unsafe_allow_html=True)
+    
     st.markdown("## 🌊 SMART-RADWATER")
     st.markdown("**Monitoreo Nuclear Hídrico**")
-    st.markdown("*Titicaca · Katari · Cohana*")
+    st.markdown("*Río Katari · Bahía Cohana · Zona Minera*")
     st.divider()
 
     seccion = st.radio("📌 Módulos", [
@@ -74,6 +75,7 @@ with st.sidebar:
         "🔋 Estado de Sensores",
         "⚠️ Alertas IAEA",
         "📄 Informes y Descarga",
+        "🌊 Río Katari — Análisis",
     ])
 
     st.divider()
@@ -101,3 +103,5 @@ elif seccion == "🤖 Predicción IA":          prediccion.mostrar(df, df_actual
 elif seccion == "🔋 Estado de Sensores":     baterias.mostrar(df_actual)
 elif seccion == "⚠️ Alertas IAEA":           alertas.mostrar(df_actual)
 elif seccion == "📄 Informes y Descarga":    informes.mostrar(df, df_actual)
+#elif seccion == "🌊 Río Katari — Análisis":   katari.mostrar(df, df_actual)
+elif seccion == "🌊 Río Katari — Análisis":   katari.mostrar(df_actual)
